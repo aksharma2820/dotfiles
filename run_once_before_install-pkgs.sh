@@ -1,18 +1,38 @@
 #!/bin/bash
 
 # detect/return non-zero errors & treat unassigned vars as errors
-set -eu
+set -eux
 
 sudo apt update
 sudo apt upgrade
 
-sudo apt install neovim
+#########################################################################
+#
+# utilities
+#
+#########################################################################
+sudo apt install build-essential avahi-daemon
 
-mv ~/.config/nvim{,.bak}
-mv ~/.local/share/nvim{,.bak}
-mv ~/.local/state/nvim{,.bak}
-mv ~/.cache/nvim{,.bak}
-git clone https://github.com/LazyVim/starter ~/.config/nvim
-rm -rf ~/.config/nvim/.git
+#########################################################################
+#
+# Neovim
+#
+#########################################################################
 
-curl -sS https://starship.rs/install.sh | sh
+./setup/nvim.sh
+
+#########################################################################
+#
+# starship
+#
+#########################################################################
+
+./setup/starship.sh
+
+#########################################################################
+#
+# chezmoi
+#
+#########################################################################
+
+./setup/chezmoi.sh
