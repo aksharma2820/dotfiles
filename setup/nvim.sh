@@ -1,3 +1,5 @@
+#!/bin/bash
+
 sudo apt install neovim
 
 # Directories to check
@@ -6,7 +8,7 @@ NVIM_DIRS=(".local/share" ".local/state" ".cache" ".config")
 # Iterate over each directory and move if it exists
 for dir in "${NVIM_DIRS[@]}"; do
 	if [ -d "$HOME/$dir/nvim" ]; then
-		mv "$HOME/$dir/nvim" "$HOME/$dir/nvim.bak"
+		mv $HOME/$dir/nvim{,.bak}
 	fi
 done
 
