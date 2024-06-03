@@ -7,7 +7,7 @@ charging_symbol = "[󰂄](bold yellow) "
 discharging_symbol = "[󰂃](bold red) "
 
 [[battery.display]]
-threshold = 60
+threshold = 20
 
 [aws]
 symbol = "  "
